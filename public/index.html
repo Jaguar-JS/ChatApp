@@ -1,0 +1,31 @@
+<!-- Це перший файл, який завантажує браузер, 
+  та в якому буде генеруватися інтерфейс додатка -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Робимо потрібні налаштування -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Підключаємо CSS файл з глобальними стилями -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+
+    <!-- Задаємо назву додатка -->
+    <title>Telegram App</title>
+  </head>
+
+  <body>
+    <!-- Якщо у користувача не працює JavaScript, 
+    то він отримує про це повідомлення -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+
+    <!-- Саме в цьому місці через файл index.js йде генерація інтерфейсу -->
+    <div id="root"></div>
+  </body>
+</html>
