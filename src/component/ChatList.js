@@ -1,8 +1,14 @@
 // Імпортуємо потрібні технології
 import React from "react";
+
+// Імпортуємо заготовлений компонент "Посилання"
+// який дасть можливість зробити посилання на сторінки в меню
+import { Link } from "react-router-dom";
+
 import styled, { css } from "styled-components";
 // Підключаємо іконку непрочитаного повідомлення
 import { ReactComponent as UnreadIcon } from "../file/chat/unread.svg";
+// Підключаємо іконку прочитаного повідомлення
 import { ReactComponent as ReadIcon } from "../file/chat/read.svg";
 
 // Генеруємо компонент "Список чатів"
@@ -37,7 +43,7 @@ function ChatItem({
 }) {
   return (
     <React.Fragment key={id}>
-      <Item>
+      <Item to="/dialog">
         <Image src={photo} />
         <Content>
           <Row>
@@ -113,8 +119,8 @@ const MessageAmount = styled.div`
   font-size: 12px;
   color: #fff;
   background-color: #037ee5;
-  padding: 2px 10px;
-  border-radius: 15px;
+  padding: 2px 8px;
+  border-radius: 50%;
 
   ${({ notifyOff }) => {
     if (notifyOff === true) {
@@ -178,7 +184,7 @@ const Content = styled.div`
 `;
 
 // Елемент "Один чат", який відповідає за відображення карточки одного чату
-const Item = styled.div`
+const Item = styled(Link)`
   /* Включаємо режим flex */
   display: flex;
   /* Відступ справа та зліва, щоб елементи не налазили на краї */

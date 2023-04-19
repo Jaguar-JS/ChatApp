@@ -9,7 +9,7 @@ import Header from "../component/Header";
 import Menu from "../component/Menu";
 // Імпортуємо компонент "Сторінка"
 import Page from "../component/Page";
-// Імпортуємо компонент "Пусто"
+// Імпортуємо компонент "Список чатів"
 import ChatList from "../component/ChatList";
 
 // ============================================
@@ -58,7 +58,7 @@ const CHATS_LIST = [
     message: "Я люблю пити молоко",
     time: "9:15",
     messageAmount: 3,
-    notifiOff: false
+    notifyOff: true
   }
 ];
 

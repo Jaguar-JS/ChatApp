@@ -3,7 +3,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 // Генеруємо компонент "Список чатів"
-export default function ChatList({ list }) {
+export default function MessageList({ list }) {
   return <List>{list.map(ChatItem)}</List>;
 }
 
@@ -20,9 +20,9 @@ const List = styled.div`
 function ChatItem({ message, isMe, time, id }) {
   return (
     <React.Fragment key={id}>
-      <Item>
+      <Item isMe={isMe}>
         <Message>{message}</Message>
-        <Time>{time}</Time>
+        <Time isMe={isMe}>{time}</Time>
       </Item>
     </React.Fragment>
   );
@@ -38,6 +38,15 @@ const Message = styled.div`
 const Time = styled.div`
   font-size: 14px; /* розмір */
   color: #8e8e93; /* колір */
+  text-align: end; /* значення з правої сторони */
+
+  ${({ isMe }) => {
+    if (isMe === true) {
+      return css`
+        color: green;
+      `;
+    }
+  }}
 `;
 
 // ======================================
@@ -54,4 +63,13 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  ${({ isMe }) => {
+    if (isMe === true) {
+      return css`
+        background-color: #e1fec6;
+        align-self: flex-end;
+      `;
+    }
+  }}
 `;
